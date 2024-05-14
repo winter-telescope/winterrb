@@ -8,7 +8,7 @@ version = "1.0.0"
 description = ""
 authors = [
     {name = "Aswin Suresh"},
-    {name = "Robert Stein"},
+    {name = "Robert Stein", email="rdstein@caltech.edu"},
 ]
 license = {text = "MIT"}
 readme = "README.md"
@@ -32,7 +32,6 @@ dependencies = [
     "astropy",
     "fastavro",
     "ipykernel",
-    "joblib",
     "jupyter",
     "matplotlib",
     "numpy",
@@ -42,7 +41,6 @@ dependencies = [
     "tqdm",
     "scikit-learn",
     "scipy",
-    "seaborn",
     "tqdm",
 ]
 [project.optional-dependencies]
@@ -52,7 +50,7 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/aswinsuresh24/winter_real_bogus"
+Homepage = "git@github.com:winter-telescope/winterrb.git"
 
 [tool.setuptools]
 packages = ["winterrb"]
