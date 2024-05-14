@@ -3,7 +3,18 @@ WINTER real/bogus ML models, originally created by [@aswinsuresh](https://github
 
 This slimmed-down version uses pytorch rather than tensorflow.
 
+[![PyPI version](https://badge.fury.io/py/winterrb.svg)](https://badge.fury.io/py/winterrb)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 ## Installing the package
+
+### Using pip
+
+```bash
+pip install winterrb
+```
+
+### From source
 
 * Clone the repository
 ```bash
