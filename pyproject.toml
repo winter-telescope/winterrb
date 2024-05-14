@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "winterrb"
-version = "1.0.0"
+version = "0.1.0"
 description = ""
 authors = [
     {name = "Aswin Suresh"},
@@ -50,7 +50,7 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "git@github.com:winter-telescope/winterrb.git"
+Homepage = "https://github.com/winter-telescope/winterrb"
 
 [tool.setuptools]
 packages = ["winterrb"]
