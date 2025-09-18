@@ -38,6 +38,7 @@ dependencies = [
     "pandas",
     "torch",
     "torchinfo",
+    "torchvision",
     "tqdm",
     "scikit-learn",
     "scipy",
