@@ -43,6 +43,7 @@ dependencies = [
     "scikit-learn",
     "scipy",
     "tqdm",
+    "xgboost",
 ]
 [project.optional-dependencies]
 dev = [
