@@ -160,5 +160,3 @@ def plot_triplet(stack: np.ndarray) -> None:
     ax[2].imshow(diff, vmin=median - 5 * std, vmax=median + 5 * std, origin="lower")
     ax[2].set_title("diff")
     ax[2].axis("off")
-
-    plt.show()
