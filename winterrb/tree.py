@@ -34,7 +34,7 @@ def get_numpy_from_df(table: pd.DataFrame) -> np.ndarray:
     :param table: DataFrame
     :return: Numpy array
     """
-    df = table.copy(deep=True)
+    df = table.copy(deep=True)[TRAIN_FEATURES]
     df.replace([np.inf, -np.inf], np.nan, inplace=True)
 
     for key, value in NANFILL_MAP.items():
