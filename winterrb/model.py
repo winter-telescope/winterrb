@@ -2,7 +2,6 @@
 Module for the model
 """
 
-import torch
 import torch.nn.functional as F
 from torch import nn
 
@@ -44,7 +43,9 @@ class WINTERNet(nn.Module):
         self.fc_out = nn.Linear(256, 1)
 
     def forward(self, x):
-        x = x.to(self.conv1.bias.dtype)
+        device = next(self.parameters()).device
+        dtype = next(self.parameters()).dtype
+        x = x.to(device=device, dtype=dtype)
         x = F.relu(self.conv1(x))
         x = F.relu(self.conv2(x))
         x = F.relu(self.conv3(x))
@@ -62,5 +63,5 @@ class WINTERNet(nn.Module):
         x = self.batch_norm3(x)
         x = self.dropout3(x)
         x = self.fc_out(x)
-        x = torch.sigmoid(x)
+        # x = torch.sigmoid(x)
         return x.view(-1, 1)

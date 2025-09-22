@@ -103,7 +103,31 @@ def rotate_triplet(triplet):
     return trip90, trip180, trip270
 
 
-def plot_triplet(stack: np.ndarray, pdf: bool = False) -> None:
+def generate_all_augmentations(triplet):
+    """
+    Generate all 16 orientation-preserving, pixel-safe augmentations
+    for a source-centered image triplet.
+
+    Input:  (H, W, 3)
+    Output: List of 16 (H, W, 3) triplets
+    """
+    augmentations = []
+    for k in range(4):  # 0°, 90°, 180°, 270°
+        rotated = np.stack([np.rot90(triplet[:, :, i], k) for i in range(3)], axis=-1)
+
+        for flip_h in [False, True]:
+            for flip_v in [False, True]:
+                aug = rotated.copy()
+                if flip_h:
+                    aug = np.flip(aug, axis=1)
+                if flip_v:
+                    aug = np.flip(aug, axis=0)
+                augmentations.append(aug.astype(np.float32))
+
+    return augmentations
+
+
+def plot_triplet(stack: np.ndarray) -> None:
     """
     Plot cutouts of sci, ref and diff from stacked triplet
 
@@ -136,10 +160,3 @@ def plot_triplet(stack: np.ndarray, pdf: bool = False) -> None:
     ax[2].imshow(diff, vmin=median - 5 * std, vmax=median + 5 * std, origin="lower")
     ax[2].set_title("diff")
     ax[2].axis("off")
-
-    # save to pdf if necessary
-    if pdf:
-        pdf.savefig()
-        plt.close()
-    else:
-        plt.show()
